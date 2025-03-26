@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repository provides Python scripts for **calculating and plotting phase transformation diagrams** (TTT, CCT) and **phase fractions** (ferrite, pearlite, bainite, martensite) for steels under various cooling conditions. The implementation draws heavily on two primary references:
+This repository provides Python scripts for **calculating and plotting phase transformation diagram** (TTT) and **phase fractions** (ferrite, pearlite, bainite, martensite) for steels under various cooling conditions. The implementation draws heavily on two primary references:
 
 1. **Li et al. (1998), _Metallurgical and Materials Transactions B_**  
    “A Computational Model for the Prediction of Steel Hardenability”  
