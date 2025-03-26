@@ -266,7 +266,20 @@ class Alloy:
 
         import matplotlib.pyplot as plt
         plt.figure(figsize=(10, 6))
-        plt.bar(ms_options.keys(), ms_options.values(), color='steelblue')
+
+        bars = plt.bar(ms_options.keys(), ms_options.values(), color='steelblue')
+
+        # Para cada barra, dibujamos un texto encima con su valor:
+        for bar in bars:
+            height = bar.get_height()
+            plt.annotate(
+                f"{height:.2f}",              # Formato con 2 decimales
+                xy=(bar.get_x() + bar.get_width()/2, height), 
+                xytext=(0, 3),               # Desplaza el texto 3 puntos arriba
+                textcoords="offset points",
+                ha='center', va='bottom'
+            )
+
         plt.xticks(rotation=45, ha='right')
         plt.ylabel('Ms Temperature (°C)')
         plt.title('Seleccione una ecuación para Ms y cierre la ventana')
@@ -298,14 +311,27 @@ class Alloy:
             'Kirkaldy_Venugopalan': (656 - 57.7 * self.C - 75 * self.Si - 35 * self.Mn - 15.3 * self.Ni - 34 * self.Cr - 41.2 * self.Mo),
             'Lee': (732 - 202 * self.C + 216 * self.Si - 85 * self.Mn - 37 * self.Ni - 47 * self.Cr - 39 * self.Mo),
         }
+
         plt.figure(figsize=(10, 4))
-        plt.bar(bs_options.keys(), bs_options.values(), color='seagreen')
+        
+        bars = plt.bar(bs_options.keys(), bs_options.values(), color='seagreen')
+        for bar in bars:
+            height = bar.get_height()
+            plt.annotate(
+                f"{height:.2f}",
+                xy=(bar.get_x() + bar.get_width()/2, height),
+                xytext=(0, 3),
+                textcoords="offset points",
+                ha='center', va='bottom'
+            )
+
         plt.xticks(rotation=45, ha='right')
         plt.ylabel('Bs Temperature (°C)')
         plt.title('Seleccione una ecuación para Bs y cierre la ventana')
         plt.tight_layout()
         plt.grid(axis='y')
         plt.show()
+
         print("\nOpciones para Bs:")
         for i, key in enumerate(bs_options.keys(), 1): print(f"{i}. {key}")
         choice = input("Ingrese el nombre exacto de la ecuación para usar Bs: ").strip()
@@ -324,7 +350,19 @@ class Alloy:
             'Trzaska': 739 - 22.8 * self.C - 6.8 * self.Mn + 18.2 * self.Si + 11.7 * self.Cr - 15 * self.Ni - 6.4 * self.Mo - 5 * w.get('V', 0) - 28 * w.get('Cu', 0),
         }
         plt.figure(figsize=(10, 4))
-        plt.bar(ac1_options.keys(), ac1_options.values(), color='orange')
+        bars = plt.bar(ac1_options.keys(), ac1_options.values(), color='orange')
+
+        
+        for bar in bars:
+            height = bar.get_height()
+            plt.annotate(
+                f"{height:.2f}",
+                xy=(bar.get_x() + bar.get_width()/2, height),
+                xytext=(0, 3),
+                textcoords="offset points",
+                ha='center', va='bottom'
+            )
+
         plt.xticks(rotation=45, ha='right')
         plt.ylabel('Ac1 Temperature (°C)')
         plt.title('Seleccione una ecuación para Ac1 y cierre la ventana')
@@ -348,7 +386,19 @@ class Alloy:
             'Andrews': 910 - (203 * np.sqrt(abs(self.C))) + (44.7 * self.Si) - (30 * self.Mn) + (11 * self.Cr) + (31.5 * self.Mo) + (104 * w.get('V', 0)) - (400 * w.get('Al', 0)) - (15.2 * self.Ni) + (13.1 * w.get('W', 0)) + (20 * w.get('Cu', 0)) - (400 * w.get('Ti', 0)),        
         }
         plt.figure(figsize=(10, 4))
-        plt.bar(ac3_options.keys(), ac3_options.values(), color='cornflowerblue')
+        bars = plt.bar(ac3_options.keys(), ac3_options.values(), color='cornflowerblue')
+
+        
+        for bar in bars:
+            height = bar.get_height()
+            plt.annotate(
+                f"{height:.2f}",
+                xy=(bar.get_x() + bar.get_width()/2, height),
+                xytext=(0, 3),
+                textcoords="offset points",
+                ha='center', va='bottom'
+            )
+
         plt.xticks(rotation=45, ha='right')
         plt.ylabel('Ac3 Temperature (°C)')
         plt.title('Seleccione una ecuación para Ac3 y cierre la ventana')
